@@ -41,9 +41,6 @@ RUN chmod a+x /ctsms/dbtool.sh /ctsms/clearcache.sh
 RUN wget -q https://raw.githubusercontent.com/phoenixctms/install-debian/master/tomcat/workers.properties -O "/usr/local/tomcat/conf/workers.properties"
 RUN chmod 640 "/usr/local/tomcat/conf/workers.properties"
 
-# FIXME: we should upstream a fix to use an overrideable environment variable in dbtools.sh
-RUN sed -i -e 's@/var/lib/tomcat8@/usr/local/tomcat@g' /ctsms/dbtool.sh
-
 ENV CTSMS_PROPERTIES /ctsms/properties
 ENV CTSMS_JAVA /ctsms/java
 
